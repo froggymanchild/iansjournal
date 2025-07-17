@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>IansJournal</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' href='main.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
-
   <div class="page-layout">
+    
+    <!-- Left Side -->
     <div class="left-content">
+      
+      <!-- Header -->
       <div class="header-group">
         <img src="iansjournal.gif" alt="Site Header" class="header-gif">
         <div class="welcome-box">
@@ -19,66 +21,66 @@
           <p>so and so lives here. flipnotes, videos, and stuff are coming soon 🐸</p>
         </div>
       </div>
-    
-      <div>
+
+      <!-- Navigation Buttons -->
+      <nav>
         <a href="videos.html" class="video-button">🎥 All Videos</a>
-        <a href="#tab1">
-          <input type="button" value="Main" class="btn-hov cursor play-hov" onclick="playAudio();" style="background: url(colr-btn-gunner.png) no-repeat; color: #C66B0D; border: outset #FFAE63;" title="Main">
-        </a>
+        <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-gunner.png) no-repeat; color: #C66B0D; border: outset #FFAE63;" title="Main">Main</button>
         <a href="tab2.html">
-          <input type="button" value="Leave a note!" class="btn-hov cursor play-hov" onclick="playAudio();" style="background: url(colr-btn-brawler.png) no-repeat; color: #D54395; border: outset #F978B6;" title="Mii Fun!">
+          <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-brawler.png) no-repeat; color: #D54395; border: outset #F978B6;" title="Mii Fun!">Leave a note!</button>
         </a>
-        <a href="#tab3">
-          <input type="button" value="Artworks" class="btn-hov cursor play-hov" onclick="playAudio();" style="background: url(colr-btn-swordf.png) no-repeat; color: #4268DB; border: outset #6D95F6;" title="Artworks">
-        </a>
-        <a href="#tab4">
-          <input type="button" value="Content" class="btn-hov cursor play-hov" onclick="playAudio();" style="background: url(colr-btn-boy.png) no-repeat; color: #CC3F00; border: outset #FF8263;" title="Content">
-        </a>
-        <a href="#tab5">
-          <input type="button" value="Sitemap" class="btn-hov cursor play-hov" onclick="playAudio();" style="background: url(btn-girl.PNG) no-repeat; color: #399835; border: outset #3BD242;" title="Sitemap">
-        </a>
-        <a href="#tab6">
-          <input type="button" value="About" class="btn-hov cursor play-hov" onclick="playAudio();" style="background: url(colr-btn-zorp.png) no-repeat; color: #12B5DB; border: outset #63E4FF;" title="About">
-        </a>
-      </div>
+        <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-swordf.png) no-repeat; color: #4268DB; border: outset #6D95F6;" title="Artworks">Artworks</button>
+        <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-boy.png) no-repeat; color: #CC3F00; border: outset #FF8263;" title="Content">Content</button>
+        <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(btn-girl.PNG) no-repeat; color: #399835; border: outset #3BD242;" title="Sitemap">Sitemap</button>
+        <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-zorp.png) no-repeat; color: #12B5DB; border: outset #63E4FF;" title="About">About</button>
+      </nav>
 
-      <div id="wrapper">
-        <div class="video-column">
-          <a href="video1.html">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video 1">
-          </a>
-          <a href="video2.html">
-            <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Video 2">
-          </a>
-          <a href="video3.html">
-            <img src="https://img.youtube.com/vi/oHg5SJYRHA0/hqdefault.jpg" alt="Video 3">
-          </a>
-        </div>
+      <!-- Main Content Area -->
+      <div class="content-container">
+        <div id="wrapper">
+          
+          <!-- Video Thumbnails -->
+          <aside class="video-column">
+            <h5>Recent</h5>
+            <a href="video1.html">
+              <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video 1">
+            </a>
+            <a href="video2.html">
+              <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Video 2">
+            </a>
+            <a href="video3.html">
+              <img src="https://img.youtube.com/vi/oHg5SJYRHA0/hqdefault.jpg" alt="Video 3">
+            </a>
+          </aside>
 
-        <div class="main-content">
-          <h2>MY LATEST VIDEOOOO</h2>
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?modestbranding=1&rel=0&autohide=1&controls=1"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen>
-            </iframe>
-          </div>
+          <!-- Main Video -->
+          <main class="main-content">
+            <h2>MY LATEST VIDEOOOO</h2>
+            <div class="video-wrapper">
+              <iframe 
+                src="https://player.vimeo.com/video/76979871"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </main>
+
         </div>
       </div>
     </div>
 
-    <div class="right-sidebar">
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
       <div class="iframe-wrapper">
         <iframe 
           src="https://ianmccollum.atabook.org/" 
-          allowfullscreen
+          allowfullscreen 
           loading="lazy">
         </iframe>
       </div>
-    </div>
-  </div>
+    </aside>
 
+  </div>
 </body>
 </html>
