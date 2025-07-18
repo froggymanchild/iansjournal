@@ -6,7 +6,48 @@
   <title>IansJournal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="main.css">
+<script>
+  async function loadLatestVimeoVideo() {
+    const token = "89b7b28f72c9a6659417ad64839e5416";
+    const userId = "user243821645";
+
+    try {
+      const response = await fetch(`https://api.vimeo.com/users/${userId}/videos?per_page=1&sort=date&direction=desc`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+      const latestVideo = data.data[0];
+
+      if (latestVideo && latestVideo.embed && latestVideo.embed.html) {
+        // Add the video
+        document.querySelector('.video-wrapper').innerHTML = latestVideo.embed.html;
+
+        // Format and display the date
+        const uploadDate = new Date(latestVideo.created_time);
+const formattedDate = uploadDate.toLocaleDateString(undefined, {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+document.getElementById("video-date").textContent = `posted on ${formattedDate}`;
+      
+
+        document.querySelector('.video-wrapper').appendChild(dateElement);
+      } else {
+        console.error("No video found or embed info missing");
+      }
+    } catch (error) {
+      console.error("Failed to load Vimeo video:", error);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', loadLatestVimeoVideo);
+</script>
 </head>
+<script src="main.js"></script>
 <body>
   <div class="page-layout">
     
@@ -24,12 +65,14 @@
 
       <!-- Navigation Buttons -->
       <nav>
-        <a href="videos.html" class="video-button">🎥 All Videos</a>
+        <a href="videos.html" class="video-button">Video Archive button</a>
         <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-gunner.png) no-repeat; color: #C66B0D; border: outset #FFAE63;" title="Main">Main</button>
         <a href="tab2.html">
           <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-brawler.png) no-repeat; color: #D54395; border: outset #F978B6;" title="Mii Fun!">Leave a note!</button>
         </a>
-        <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-swordf.png) no-repeat; color: #4268DB; border: outset #6D95F6;" title="Artworks">Artworks</button>
+        <a href="ianpiano.html">
+        <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-swordf.png) no-repeat; color: #4268DB; border: outset #6D95F6;" title="Artworks">Ian piano</button>
+        </a>
         <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-boy.png) no-repeat; color: #CC3F00; border: outset #FF8263;" title="Content">Content</button>
         <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(btn-girl.PNG) no-repeat; color: #399835; border: outset #3BD242;" title="Sitemap">Sitemap</button>
         <button class="btn-hov cursor play-hov" onclick="playAudio()" style="background: url(colr-btn-zorp.png) no-repeat; color: #12B5DB; border: outset #63E4FF;" title="About">About</button>
@@ -40,29 +83,32 @@
         <div id="wrapper">
           
           <!-- Video Thumbnails -->
-          <aside class="video-column">
-            <h5>Recent</h5>
-            <a href="video1.html">
-              <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video 1">
-            </a>
-            <a href="video2.html">
-              <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Video 2">
-            </a>
-            <a href="video3.html">
-              <img src="https://img.youtube.com/vi/oHg5SJYRHA0/hqdefault.jpg" alt="Video 3">
-            </a>
-          </aside>
+ <div class="video-column">
+  <h5>Recent</h5>
+  <div class="video-sidebar-wrapper">
+    <div class="naked-video">
+      <iframe src="https://player.vimeo.com/video/76979871?autoplay=0&background=0&title=0&byline=0&portrait=0&controls=0"
+        frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="naked-video">
+      <iframe src="https://player.vimeo.com/video/22439234?autoplay=0&background=0&title=0&byline=0&portrait=0&controls=0"
+        frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="naked-video">
+      <iframe src="https://player.vimeo.com/video/1102395699"
+        frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
           <!-- Main Video -->
           <main class="main-content">
-            <h2>MY LATEST VIDEOOOO</h2>
+            <h2 class="video-header">
+  MY LATEST VIDEOOOO 
+  <span id="video-date" class="upload-date"></span>
+</h2>
             <div class="video-wrapper">
-              <iframe 
-                src="https://player.vimeo.com/video/76979871"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen>
-              </iframe>
+              <div id="spotlight-video"></div>
             </div>
           </main>
 

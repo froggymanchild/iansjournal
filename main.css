@@ -207,6 +207,19 @@ h2 {
   font-weight: bold;
 }
 
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.upload-date {
+  font-size: 14px;
+  color: #ddd;
+}
+
 @media (max-width: 600px) {
   .page-layout {
     flex-direction: column;
@@ -249,3 +262,18 @@ h2 {
     display:none;
   }
 }
+.video-sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.video-sidebar-wrapper iframe {
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+
