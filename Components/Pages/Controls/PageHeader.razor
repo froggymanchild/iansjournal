@@ -1,0 +1,41 @@
+﻿@using System.Reflection
+
+<div class="aligned-container" style="text-align:center;" >
+    <img src=@GifNameString alt="ians journal" /> 
+    <span class="title-text">Welcome to IansJournal.net</span>
+    <img src=@GifNameString alt="ians journal" />
+</div>
+<div class="subtitle-text aligned-container" style="text-align:center;">
+   <span>@PageName</span>
+</div>
+
+
+@code {
+    [Parameter]
+    public string GifNameString { get; set; } = "";
+
+    [Parameter]
+    public string PageName { get; set; } = "";
+}
+
+<style>
+    .aligned.container {
+        display : flex;
+        align-items: center;
+        gap : 10px;
+    }
+    .aligned-container img{
+        width : 150px;
+        height : auto;
+    }
+    .title-text {
+        text-shadow: 2px 2px 8px #FF0000;
+        font-family: 'Comic Sans MS';
+        font-size: xx-large;
+    }
+    .subtitle-text {
+        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+        font-family: 'Comic Sans MS';
+        font-size: large;
+    }
+</style>

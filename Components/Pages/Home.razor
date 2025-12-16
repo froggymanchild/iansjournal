@@ -1,0 +1,27 @@
+﻿@page "/"
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@using System.Reflection
+@* @using iansjournal.API.Models
+@using iansjournal.API.Services *@
+@using iansjournal.Components.Pages.Controls
+@* @inject IVideoService videoService *@
+
+<div>
+    <PageHeader GifNameString="iansjournal.gif" PageName="The Home Page"></PageHeader>
+</div>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+
+@code{
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
